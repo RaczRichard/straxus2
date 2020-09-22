@@ -1,0 +1,16 @@
+{
+  "require": {
+    "vlucas/phpdotenv": "^2.4",
+    "nesbot/carbon": "^2.33",
+    "monolog/monolog": "^2.0",
+    "ext-json": "*",
+    "ext-http": "*",
+    "ext-apache": "*",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "straxus\\": "src/"
+    }
+  }
+}

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Randi\domain\base\controller;
+namespace straxus\domain\base\controller;
 
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use Randi\domain\user\service\AuthService;
+use straxus\domain\user\service\AuthService;
 
 class BaseController
 {
@@ -17,7 +17,7 @@ class BaseController
     public function __construct()
     {
         $this->log = new Logger('BaseController.php');
-        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'].'/randi.log', Logger::DEBUG));
+        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'].'/straxus.log', Logger::DEBUG));
         $this->authService = new AuthService();
     }
 
@@ -30,4 +30,12 @@ class BaseController
        $this->log->debug("return json " . json_encode($data));
         echo json_encode($data);
    }
+
+    protected function returnError($message, $statusCode = 400)
+    {
+        $error["message"] = $message;
+        echo json_encode($error);
+        http_response_code($statusCode);
+        exit;
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Randi\modules;
+namespace straxus\modules;
 
 
 class RequestHandler

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Randi\modules;
+namespace straxus\modules;
 
 
 use Monolog\Handler\StreamHandler;
@@ -14,7 +14,7 @@ class Mapper{
     public function __construct()
     {
         $this->log = new Logger('Mapper.php');
-        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'].'/randi.log', Logger::DEBUG));
+        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'].'/straxus.log', Logger::DEBUG));
     }
 
     public function jsonDecode($json, $class){

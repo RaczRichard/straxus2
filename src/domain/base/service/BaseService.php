@@ -1,17 +1,17 @@
 <?php
 
 
-namespace Randi\domain\base\service;
+namespace straxus\domain\base\service;
 
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use Randi\config\Database;
-use Randi\domain\user\entity\Token;
-use Randi\domain\user\entity\User;
-use Randi\domain\user\entity\UserRequest;
-use Randi\modules\JwtHandler;
-use Randi\modules\Mapper;
+use straxus\config\Database;
+use straxus\domain\user\entity\Token;
+use straxus\domain\user\entity\User;
+use straxus\domain\user\entity\UserRequest;
+use straxus\modules\JwtHandler;
+use straxus\modules\Mapper;
 
 class BaseService
 {
@@ -26,7 +26,7 @@ class BaseService
         $this->db = new Database();
         $this->log = new Logger('BaseService.php');
         $this->jwtHandler = new JwtHandler();
-        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'] . '/randi.log', Logger::DEBUG));
+        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'] . '/straxus.log', Logger::DEBUG));
     }
 
     protected function getToken(): ?Token
@@ -43,26 +43,26 @@ class BaseService
     }
 
 
-//    /**
-//     * @return User
-//     */
-//    protected function getUser(): User // USER TÁBLA KIKÉRÉSE
-//    {
-//        $token = $this->getToken();
-//        $userId = $token->id;
-//        if (isset($token)) {
-//            $stmt = $this->db->prepare("select * from user where id=:id");
-//            $stmt->execute([
-//                "id" => $userId,
-//            ]);
-//            $userData = $stmt->fetch(\PDO::FETCH_ASSOC);
-//
-//            $mapper = new Mapper();
-//            /** @var User $users */
-//            $user = $mapper->classFromArray($userData, new User());
-//            return $user;
-//        }
-//        return null;
-//    }
-//
+    /**
+     * @return User
+     */
+    protected function getUser(): User // USER TÁBLA KIKÉRÉSE
+    {
+        $token = $this->getToken();
+        $userId = $token->id;
+        if (isset($token)) {
+            $stmt = $this->db->prepare("select * from user where id=:id");
+            $stmt->execute([
+                "id" => $userId,
+            ]);
+            $userData = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            $mapper = new Mapper();
+            /** @var User $users */
+            $user = $mapper->classFromArray($userData, new User());
+            return $user;
+        }
+        return null;
+    }
+
 }

@@ -1,7 +1,7 @@
 vendor/*
 .env
 .idea
-randi.log
+straxus.log
 composer.lock
 images/*
 php composer.phar install

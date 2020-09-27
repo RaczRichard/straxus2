@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Randi\domain\user\entity;
+namespace straxus\domain\user\entity;
 
 
 class LoginRequest
@@ -23,7 +23,7 @@ class LoginRequest
     /**
      * @param string $username
      */
-    public function setEmail(string $username): void
+    public function setUsername(string $username): void
     {
         $this->username = $username;
     }

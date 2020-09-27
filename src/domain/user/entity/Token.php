@@ -1,12 +1,14 @@
 <?php
 
 
-namespace Randi\domain\user\entity;
+namespace straxus\domain\user\entity;
 
 
 class Token
 {
-    public $email;
     public $id;
+    public $username;
     public $exp;
+    public $role;
+    public $roleName;
 }

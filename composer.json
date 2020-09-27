@@ -4,9 +4,8 @@
     "nesbot/carbon": "^2.33",
     "monolog/monolog": "^2.0",
     "ext-json": "*",
-    "ext-http": "*",
-    "ext-apache": "*",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-apache": "*"
   },
   "autoload": {
     "psr-4": {

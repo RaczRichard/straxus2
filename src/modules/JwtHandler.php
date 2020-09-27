@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Randi\modules;
+namespace straxus\modules;
 
 use http\Exception\RuntimeException;
 use Carbon\Carbon;
 use MongoDB\Driver\Exception\InvalidArgumentException;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use Randi\domain\user\entity\Token;
+use straxus\domain\user\entity\Token;
 
 
 class JwtHandler
@@ -19,7 +19,7 @@ class JwtHandler
     public function __construct()
     {
         $this->log = new Logger('JwtHandler.php');
-        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'].'/randi.log', Logger::DEBUG));
+        $this->log->pushHandler(new StreamHandler($GLOBALS['rootDir'].'/straxus.log', Logger::DEBUG));
     }
 
     public function generateSecret() : string {

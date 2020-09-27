@@ -1,5 +1,6 @@
 <?php
 
 $routing = [
-//    "auth" => \Randi\domain\user\controller\AuthController::class,
+    "auth" => \straxus\domain\user\controller\AuthController::class,
+    "user" => \straxus\domain\user\controller\UserController::class,
 ];

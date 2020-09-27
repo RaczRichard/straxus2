@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Randi\domain\user\entity;
+namespace straxus\domain\user\entity;
 
 
 class User
@@ -10,5 +10,5 @@ class User
     public $username;
     public $password;
     public $roleId;
-    public $time;
+    public $roleName;
 }

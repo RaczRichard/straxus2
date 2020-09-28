@@ -3,8 +3,7 @@ create table login
   id int auto_increment primary key,
 	userId varchar(100) not null,
 	jwt varchar(32) not null,
-	loggedTime date not null,
-	logoutTime date not null
+	loggedTime date not null
 )
 ;
 
@@ -28,7 +27,8 @@ create table user
   id int auto_increment primary key,
 	Username varchar(100) not null,
 	Password varchar(100) not null,
-	roleId int not null
+	roleId int not null,
+	fail int not null
 )
 ;
 
